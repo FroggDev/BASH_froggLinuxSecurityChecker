@@ -91,7 +91,10 @@ echo -e " *"
 echo -e " * Daemon to test :"
 echo -e " * ----------------"
 for ((i=0;i<nbTest;i++));do
-	echo -e " * ${DATA[$i,0]^^} version ${DATA[$i,2]}";
+	#test if daemon exist
+	if canExec ${DATA[$i,0]}
+		echo -e " * ${DATA[$i,0]^^} version ${DATA[$i,2]}";
+	fi
 done
 echo -e "===============================${NORM}"
 
